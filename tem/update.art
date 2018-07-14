@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>修改form</h2>
+    <form action="/update" method="post" enctype="multipart/form-data">
+        <input type="hidden" value="{{results[0].Id}}" name="id">
+        <input type="text" value="{{results[0].name}}" name="name" placeholder="请输入英雄的名字">
+        <br>
+        <input type="file" name="icon" id="">
+        <img src="{{results[0].icon}}" alt="">
+        <br>
+        <input type="submit" name="" id="">
+    </form>
+    <!-- <form class="" action="/update" method="post" enctype="multipart/form-data">
+        <input type="hidden" value="{{results[0].Id}}" name="id">
+        <input type="text" value="{{results[0].name}}" name="name" placeholder="请输入一个牛逼的名字">
+        <br>
+        <input type="file" name="icon">
+        <img src="{{results[0].icon}}" alt="">
+        <br>
+        <input type="submit">
+    </form> -->
+</body>
+
+</html>

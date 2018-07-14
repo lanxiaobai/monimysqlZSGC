@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        li:hover {
+            background-color: yellowgreen;
+        }
+
+        img {
+            display: block;
+            width: 160px;
+            height: 160px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 127.0.0.1/index -->
+    <h2>查询form</h2>
+    <form class="searchForm" action="/index" method="get">
+        <input class="search" type="text" name="search" value="{{search}}" placeholder="请输入查询的名字">
+        <input type="submit">
+    </form>
+    <h2>新增form</h2>
+    <form class="addForm" action="/add" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="请输入一个牛逼的名字">
+        <br>
+        <input type="file" name="icon">
+        <br>
+        <input type="submit">
+    </form>
+    <ul>
+        {{each results}}
+        <li>
+            <a href="/update?id={{$value.Id}}">
+                <img src="{{$value.icon}}" alt="">
+            </a>
+            <a href="/delete?id={{$value.Id}}">{{$value.name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+    
+    
+    <!-- <ul>
+        {{each results}}
+        <li>
+            <a href="/update?id={{$value.Id}}">
+                <img src="{{$value.icon}}" alt="">
+            </a>
+            <a href="/delete?id={{$value.Id}}">{{$value.name}}</a>
+        </li>
+        {{/each}}
+    </ul> -->
+</body>
+
+</html>
+<!-- 前端判断输入的数据 -->
+<script>
+    document.querySelector('.searchForm input[type=submit]').onclick = function (event) {
+        // 获取 隔壁的兄弟的value值
+        let inputValue = document.querySelector('.search').value.trim();
+        // console.log(inputValue.length);
+        document.querySelector('.search').value = inputValue;
+        if(inputValue.length!=0){
+
+        }else{
+            event.preventDefault();
+        }
+    }
+</script>
